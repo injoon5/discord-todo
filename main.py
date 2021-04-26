@@ -58,6 +58,10 @@ async def on_message(message):
       embed.add_field(name="Ping", value=f"{pingtime}ms", inline=True)
       embed.add_field(name="업타임", value=uptext, inline=True)
       await message.channel.send(embed=embed)
+    if message.content.startswith("it hellothisisverification"):
+      await message.channel.send("injoon5#0225(741109989309153290)")  
+    if message.content.startswith("ithellothisisverification"):
+      await message.channel.send("제가 봇 접두사를 특이하게 지정해서... 원래는 `it hellothisisverification`입니다.\n정보는 여기있습니다: \ninjoon5#0225(741109989309153290)")  
     if message.content.startswith("it help"):
       guild = str(message.guild)
       #### Create the initial embed object ####
@@ -66,7 +70,7 @@ async def on_message(message):
       embed1.add_field(name="`it add (ToDo 이름)`", value="(ToDo 이름)으로 ToDo를 생성한다. ", inline=True)
       embed1.add_field(name="`it mark (it list 를 사용하면 뒤에 붙는 이상한 문자)`", value="입력한 문자에 해당하는 ToDo를 완료로 표시하고 지운다. ", inline=True)
       embed1.add_field(name="`it ping`", value="ping 과 봇에 관련된 각종 정보 확인", inline=True)
-      embed1.set_footer(text=f"{guild}에서 이 봇을 사용해 주셔서 감사합니다. \n이 봇을 자신의 서버에 초대하거나 서포트 서버에 들어가려면?\n it invite 로 자세한 정보를 알아보세요.\nMade with ❤️ by injoon5") 
+      embed1.set_footer(text=f"{guild}에서 이 봇을 사용해 주셔서 감사합니다. \n이 봇을 자신의 서버에 초대하거나 서포트 서버에 들어가려면?\n it invite 로 자세한 정보를 알아보세요.\nMade with ❤️ by injoon5#0225") 
       await message.channel.send(embed=embed1)
 
 client.run(os.getenv("dctoken"))
