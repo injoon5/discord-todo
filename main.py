@@ -1,7 +1,7 @@
 import discord
 from tinydb import TinyDB, Query, where
 from tinydb.operations import delete
-import uuid, time, os
+import uuid, time, os, asyncio
 
 tododb = TinyDB('tododb.json')
 
@@ -11,6 +11,18 @@ startTime = time.time()
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    while True:
+      await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="it help를"))
+      await asyncio.sleep(10)
+      #Create a variable that contains all the servers
+      activeServers = client.guilds
+      #Create a variable to store amount of members per server
+      sum = 0
+      #Loop through the servers, get all members and add them up
+      for s in activeServers:
+        sum += len(s.members)
+      await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=f"{len(client.guilds)}개의 서버에서 사용자의 할일을"))   
+      await asyncio.sleep(10)
 
 @client.event
 async def on_message(message):
